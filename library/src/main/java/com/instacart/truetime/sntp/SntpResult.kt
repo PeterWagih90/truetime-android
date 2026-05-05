@@ -1,6 +1,6 @@
 package com.instacart.truetime.sntp
 
-class SntpResult(val ntpResult: LongArray) {
+class SntpResult(val ntpResult: LongArray, val bootId: String = "") {
 
   /** See δ : https://en.wikipedia.org/wiki/Network_Time_Protocol#Clock_synchronization_algorithm */
   fun roundTripDelay(): Long {
