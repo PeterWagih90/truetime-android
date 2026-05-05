@@ -2,6 +2,9 @@ package com.instacart.truetime.sntp
 
 class SntpResult(val ntpResult: LongArray, val bootId: String = "") {
 
+  // Secondary constructor for Java binary compatibility (preserves original JVM signature)
+  constructor(ntpResult: LongArray) : this(ntpResult, "")
+
   /** See δ : https://en.wikipedia.org/wiki/Network_Time_Protocol#Clock_synchronization_algorithm */
   fun roundTripDelay(): Long {
     return ntpResult[SntpImpl.RESPONSE_INDEX_RESPONSE_TIME] -
